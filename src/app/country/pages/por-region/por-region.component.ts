@@ -17,13 +17,13 @@ export class PorRegionComponent {
   constructor(private paisService:PaisService) { };
 
   activarRegion(region:string){
+    if(this.regionActiva===region)return;
     this.regionActiva=region;
 
     //TODO HACER EL LLAMADO AL SERVICIO
     this.paisService.getCountryByRegion(this.regionActiva)
-    .subscribe(resp=>{
-      console.log(resp);
-      this.paises=resp;
+    .subscribe(paises=>{
+      this.paises=paises;
     })
 
   }

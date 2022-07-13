@@ -13,14 +13,14 @@ export class PaisService {
   constructor(private http:HttpClient) { };
 
   buscarPais(termino:string):Observable<Country[]>{
-    const URL=`${this.apiUrl}/name/${termino}`;
+    const URL=`${this.apiUrl}/name/${termino}?fields=flag,name,population,capital,alpha3Code,alpha2Code`;
     
 
     return this.http.get<Country[]>(URL);
   }
 
   buscarCapital(termino:string):Observable<Country[]>{
-    const URL=`${this.apiUrl}/capital/${termino}`;
+    const URL=`${this.apiUrl}/capital/${termino}?fields=flag,name,population,capital,alpha3Code,alpha2Code`;
     
 
     return this.http.get<Country[]>(URL);
@@ -32,7 +32,7 @@ export class PaisService {
   }
 
   getCountryByRegion(region:string):Observable<Country[]>{
-    const URL=`${this.apiUrl}/regionalbloc/${region}`;
+    const URL=`${this.apiUrl}/regionalbloc/${region}?fields=flag,name,population,capital,alpha3Code,numericCode,alpha2Code`;
     return this.http.get<Country[]>(URL);
   }
 }
