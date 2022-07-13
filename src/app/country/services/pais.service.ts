@@ -30,4 +30,9 @@ export class PaisService {
     const URL=`${this.apiUrl}/alpha/${id}`;
     return this.http.get<Country[]>(URL);
   }
+
+  getCountryByRegion(region:string):Observable<Country[]>{
+    const URL=`${this.apiUrl}/regionalbloc/${region}`;
+    return this.http.get<Country[]>(URL);
+  }
 }
